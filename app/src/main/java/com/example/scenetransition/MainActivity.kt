@@ -13,19 +13,19 @@ class MainActivity : AppCompatActivity() {
         val scene1 = Scene.getSceneForLayout(findViewById(R.id.scene_root), R.layout.scene1,this)
         val scene2 = Scene.getSceneForLayout(findViewById(R.id.scene_root), R.layout.scene2, this)
         val transitionManager = TransitionManager()
-        //Когда зашли на scene1, устанавливаем обработчик нажатия на кнопку, который запустит scene2
+
         scene1.setEnterAction {
             scene1.sceneRoot.button.setOnClickListener {
                 transitionManager.transitionTo(scene2)
             }
         }
-        //Аналогичный код
+
         scene2.setEnterAction {
             scene2.sceneRoot.button.setOnClickListener {
                 transitionManager.transitionTo(scene1)
             }
         }
-        //Запускаем scene1
+
         transitionManager.transitionTo(scene1)
     }
 }
